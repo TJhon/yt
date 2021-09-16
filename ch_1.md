@@ -1,4 +1,4 @@
-ch1
+Challenge 1
 ================
 Jhon
 
@@ -95,7 +95,7 @@ clean <-
   mutate(
     first_name  = case_when(str_detect(row_type, "name") ~ str_sub(row_type, 13, -1))
     , last_name  = case_when(str_detect(iter_number, "name") ~ str_sub(iter_number, 12, -1))
-    , date  = case_when(str_detect(power1, "date") ~ str_sub(power1, 6, -1))
+    , date  = case_when(str_detect(power1, "date") ~ str_sub(power1, 7, -1))
     , iter  = case_when(str_detect(row_type, "Total") ~ row_number()
   )) %>% 
   fill(10:12) %>% 
@@ -124,12 +124,12 @@ head(clean)
     ## # A tibble: 6 × 13
     ##      Id First_name Last_name Date      Row_type Iter_number Power1 Speed1 Speed2
     ##   <int> <chr>      <chr>     <chr>     <chr>          <dbl>  <dbl>  <dbl>  <dbl>
-    ## 1     1 Person     Human     " end of… Iter               1    360    108    863
-    ## 2     1 Person     Human     " end of… Iter               2    684    508    613
-    ## 3     1 Person     Human     " end of… Iter               3    365    126    825
-    ## 4     1 Person     Human     " end of… Iter               4    764    594    304
-    ## 5     1 Person     Human     " end of… Iter               5    487     97    593
-    ## 6     1 Person     Human     " end of… Average          182    361    741    231
+    ## 1     1 Person     Human     end of t… Iter               1    360    108    863
+    ## 2     1 Person     Human     end of t… Iter               2    684    508    613
+    ## 3     1 Person     Human     end of t… Iter               3    365    126    825
+    ## 4     1 Person     Human     end of t… Iter               4    764    594    304
+    ## 5     1 Person     Human     end of t… Iter               5    487     97    593
+    ## 6     1 Person     Human     end of t… Average          182    361    741    231
     ## # … with 4 more variables: Electricity <dbl>, Effort <dbl>, Weight <dbl>,
     ## #   Torque <dbl>
 
@@ -150,11 +150,11 @@ head(clean_v2)
     ## # A tibble: 6 × 13
     ##      Id First_name Last_name Date      Row_type Iter_number Power1 Speed1 Speed2
     ##   <int> <chr>      <chr>     <chr>     <chr>          <dbl>  <dbl>  <dbl>  <dbl>
-    ## 1     1 Person     Human     " end of… Iter               1    360    108    863
-    ## 2     1 Person     Human     " end of… Iter               2    684    508    613
-    ## 3     1 Person     Human     " end of… Iter               3    365    126    825
-    ## 4     1 Person     Human     " end of… Iter               4    764    594    304
-    ## 5     1 Person     Human     " end of… Iter               5    487     97    593
-    ## 6     1 Person     Human     " end of… Maximum          276     33     97    154
+    ## 1     1 Person     Human     end of t… Iter               1    360    108    863
+    ## 2     1 Person     Human     end of t… Iter               2    684    508    613
+    ## 3     1 Person     Human     end of t… Iter               3    365    126    825
+    ## 4     1 Person     Human     end of t… Iter               4    764    594    304
+    ## 5     1 Person     Human     end of t… Iter               5    487     97    593
+    ## 6     1 Person     Human     end of t… Maximum          276     33     97    154
     ## # … with 4 more variables: Electricity <dbl>, Effort <dbl>, Weight <dbl>,
     ## #   Torque <dbl>
