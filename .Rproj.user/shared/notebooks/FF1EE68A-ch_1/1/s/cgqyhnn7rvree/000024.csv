@@ -1,0 +1,40 @@
+"0","clean <- 
+  dirty %>% 
+  janitor::clean_names() %>% 
+  select(!c(x10, x11)) %>% 
+  mutate(
+    first_name  = case_when(str_detect(row_type, ""name"") ~ str_sub(row_type, 13, -1))
+    , last_name  = case_when(str_detect(iter_number, ""name"") ~ str_sub(iter_number, 12, -1))
+    , date  = case_when(str_detect(power1, ""date"") ~ str_sub(power1, 6, -1))
+    , iter  = case_when(str_detect(row_type, ""Total"") ~ row_number()
+  )) %>% 
+  fill(10:12) %>% 
+  fill(iter, .direction = ""up"") %>% 
+  drop_na(speed1) %>% 
+  with_groups(iter, ~mutate(., id = cur_group_id())) %>% 
+  select(!iter) %>% 
+  filter(!str_detect(row_type, ""Type"")) %>% 
+  relocate(id, first_name, last_name, date) %>% 
+  mutate(across(iter_number:torque, as.numeric)) %>% 
+  rename_with(str_to_sentence)
+"
+"2","Warning:"
+"2"," Problem with `mutate()` input `..1`.
+[34mℹ[39m `..1 = across(iter_number:torque, as.numeric)`.
+[34mℹ[39m NAs introduced by coercion
+"
+"2","Warning:"
+"2"," Problem with `mutate()` input `..1`.
+[34mℹ[39m `..1 = across(iter_number:torque, as.numeric)`.
+[34mℹ[39m NAs introduced by coercion
+"
+"2","Warning:"
+"2"," Problem with `mutate()` input `..1`.
+[34mℹ[39m `..1 = across(iter_number:torque, as.numeric)`.
+[34mℹ[39m NAs introduced by coercion
+"
+"2","Warning:"
+"2"," Problem with `mutate()` input `..1`.
+[34mℹ[39m `..1 = across(iter_number:torque, as.numeric)`.
+[34mℹ[39m NAs introduced by coercion
+"
